@@ -32,13 +32,14 @@ padding: 0;
     font-size: 1.3rem;
 }
 .cardContainer{
+    width: fit-content;
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 .card{
-    width: 17%;
+    width: 9rem;
     height: max-content;
     margin: 0.5rem;
     text-align: center;
@@ -52,7 +53,8 @@ padding: 0;
 .card .pokename{
     font-family: 'Prompt';
     font-weight: 400;
-    
+    font-size: 1rem;
+    word-wrap:break-word;    
 }
 .card .type{
     background-color: cadetblue;
@@ -60,4 +62,58 @@ padding: 0;
     border-radius: 15px;
     width: min-content;
     margin: auto;
+}
+.mainsection{
+    display: flex;
+}
+
+.modalContainer{
+    width: 50%;
+    height: 50%;
+    background-color: rgb(219, 191, 145);
+    color: beige;
+    position: fixed;
+    top: 25%;
+    padding: 10px;
+    left: 25%;
+    border-radius: 30px;
+}
+
+.modalHeader{
+    text-align: center;
+    height: max-content;
+}
+
+.modal_left .nameInModal{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.7rem;
+}
+
+.modalHeader button{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background-color: inherit;
+    border: none;
+    color: rgb(214, 19, 19);
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+}
+.modalMain{
+    height: 84%;
+    display: flex;
+}
+.modal_left{
+    background-color: cadetblue;
+    width: 35%;
+    text-align: center;
+    height: 100%;
+}
+.modal_right{
+    background-color: azure;
+    width: 65%;
+}
+.modal_left img{
+    height: 6rem;
 }
