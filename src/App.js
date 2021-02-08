@@ -3,7 +3,7 @@ import "./App.css";
 import PokeCard from './components/PokeCard'
 import PokemonModal from "./components/PokemonModal";
 function App(){
-    const noOfPokemon=50;
+    const noOfPokemon=100;
     var[data,setdata]=useState([])
     var[pokedata,setPokedata]=useState(data);
     var[loading,setloading]=useState(true);
@@ -23,14 +23,15 @@ function App(){
                             weight:data.weight,
                             height:data.height,
                             order:data.order,
-                            moves:data.moves
+                            moves:data.moves,
+                            stats:data.stats
                         }
                     ]
         })
     }
 
     const searchpokemon=async(e)=>{
-        let value=e.target.value;
+        let value=e.target.value.toLowerCase();
 
         if(value===''){
             setPokedata(data);
@@ -55,7 +56,8 @@ function App(){
                     img:pokedata[showIndex].img,
                     types:pokedata[showIndex].type,
                     weight:pokedata[showIndex].weight,
-                    height:pokedata[showIndex].height
+                    height:pokedata[showIndex].height,
+                    stats:pokedata[showIndex].stats
                 }
         })
     }
@@ -77,7 +79,7 @@ function App(){
         setPokedata(data)
     },[data])
    
-    // console.log(pokedata)
+     //console.log(pokedata)
     return(
     <>
     <h1 className="heading">POKE<span style={{color:'#F31313'}}>DEX</span></h1><br/>
@@ -95,7 +97,7 @@ function App(){
                                     types={modalData.types}
                                     weight={modalData.weight}
                                     height={modalData.height}
-
+                                    stats={modalData.stats}
 
 
     />:null}

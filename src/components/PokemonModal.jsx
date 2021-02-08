@@ -1,46 +1,43 @@
 import React from 'react'
 import CancelIcon from '@material-ui/icons/Cancel';
 import PokemonType from "./PokemonType";
-
+import PokemonStats from '../components/PokemonStats'
 
 
 export default function PokemonModal(props) {
 
     console.log(props)
     return (
-        <div className="modalContainer"> 
-            <header className="modalHeader">
-                <button className="closeModalBtn" onClick={props.closeModal}>
-                    <CancelIcon/>
-                </button>
-            </header>       
 
-            <section className="modalMain">
-                <div className='modal_left'>
-                    <img src={props.img.front_default}/>
-                    <h3 className="nameInModal">{props.name}</h3>
-                    <div className="modal_poke_types">
-                        {
-                            props.types.map((item)=>{
-                                console.log(item.type.name)
-                                return <PokemonType type={item.type.name}/>
-                            })
-                        }
+            <div className="modalContainer"> 
+                <section className="modalMain">
+                    <div className='modal_left'>
+                        <img src={props.img.front_default}/>
+                        <h3 className="nameInModal">{props.name}</h3>
+                        <div className="modal_poke_types">
+                            {
+                                props.types.map((item)=>{
+                                    console.log(item.type.name)
+                                    return <PokemonType type={item.type.name}/>
+                                })
+                            }
+                        </div>
                     </div>
-                </div>
 
-                <div className='modal_right'>
-                        <div className='wt_ht_container'>
-                            <div className='weight'>Weight : {props.weight} kg</div>
-                            <div className='height'>Height : {props.height}</div>
-                        </div>
-                        <div className="switch_info">
-                            <div className="stats">
-                                
+                    <div className='modal_right'>
+                        <button className="closeModalBtn" onClick={props.closeModal}>
+                            <CancelIcon/>
+                        </button>  
+                            <div className='wt_ht_container'>
+                                <div className='weight'>Weight : <span className='weightValue'>{props.weight} kg</span> </div>
+                                <div className='height'>Height : <span className='heightValue'>{props.height} m </span> </div>
                             </div>
-                        </div>
-                </div>
-            </section>
-        </div>
+                            
+                               <PokemonStats stats={props.stats}/>                                
+                           
+                    </div>
+                </section>
+            </div>
+            
     )
 }

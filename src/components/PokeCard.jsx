@@ -24,7 +24,7 @@ function PokeCard(props) {
             <div className='card' onClick={()=>props.getMoreInfo(props.id)} style={{backgroundColor:colors[props.type]}}>
                 <img src={props.img}/>
                 <h3 className="pokename">{props.name}</h3>
-                <h4 className="type">{props.order}</h4>
+                
             </div>
         </>
     )
