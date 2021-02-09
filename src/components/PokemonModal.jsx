@@ -1,10 +1,17 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import CancelIcon from '@material-ui/icons/Cancel';
 import PokemonType from "./PokemonType";
 import PokemonStats from '../components/PokemonStats'
 
 
 export default function PokemonModal(props) {
+
+    var [activeTab,setactiveTab]=useState(1);
+
+
+
+
+
 
     console.log(props)
     return (
@@ -28,12 +35,24 @@ export default function PokemonModal(props) {
                         <button className="closeModalBtn" onClick={props.closeModal}>
                             <CancelIcon/>
                         </button>  
-                            <div className='wt_ht_container'>
-                                <div className='weight'>Weight : <span className='weightValue'>{props.weight} kg</span> </div>
-                                <div className='height'>Height : <span className='heightValue'>{props.height} m </span> </div>
+                        <div className='wt_ht_container'>
+                            <div className='weight'>Weight : <span className='weightValue'>{props.weight} kg</span> </div>
+                            <div className='height'>Height : <span className='heightValue'>{props.height} m </span> </div>
+                        </div>
+
+                         <div className="tabsContainer" style={{marginBottom:'0.2rem'}}>
+                             <button onClick={()=>{setactiveTab(1)}} className={activeTab==1?'active-tab':'tab'}><h2> STATS </h2></button>
+                             <button onClick={()=>{setactiveTab(2)}} className={activeTab==2?'active-tab':'tab'}><h2> EVOLUTION </h2></button>
+                         </div>   
+
+                         <div className='tabContent'>
+                            <div className={activeTab==1?'active-content':'content'} >
+                                    <PokemonStats stats={props.stats}/> 
                             </div>
-                            
-                               <PokemonStats stats={props.stats}/>                                
+                            <div className={activeTab==2?'active-content':'content'}>
+                                <h1>Yet to come</h1>
+                            </div>
+                        </div>                             
                            
                     </div>
                 </section>

@@ -13,7 +13,7 @@ export default function PokemonStats(props) {
 
     return (
         <div className="stats">
-                 <h2 className="stats_headng" style={{marginBottom:'1rem',letterSpacing:'3px'}}> STATS </h2>   
+                    
                   {props.stats.map((item)=>{
 
                       if(item.stat.name!='special-attack' && item.stat.name!='special-defense'){
